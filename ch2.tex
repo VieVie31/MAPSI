@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Chapitre 2}
+\author{VieVie31}
+
+\begin{document}
+
+\newtheorem{theo}{Théorème}
+\newtheorem{coro}{Corollaire}
+
+\maketitle
+
+\section{Loi de Bernoulli}
+Epreuve de Bernoulli : expérience aléatoire qui ne peut prendre que 2 résultats : {succès, échec}
+\begin{itemize}
+    \item $p$ : probas de succès
+    \item $q = 1 - p$ : probas d'échec
+    \item $X$ : le nombre de succès de l'épreuve de Bernoulli
+    \item $E(X) = p$
+    \item $V(X) = p(1 - p)$
+\end{itemize}
+
+\section{Loi Binomiale}
+Epreuve binomiale : 
+\begin{itemize}
+    \item on répète $n$ fois la même épreuve de Bernoulli
+    \item les probas $p$ et $q$ restent inchangées pour chaque épreuvede Bernoulli
+    \item les épreuve de Bernoulli sont toutes réalisées indépendament les unes des autres
+    \item $n$ : nombre de fois que l'on répète l'épreuve de Bernoulli
+    \item $p$ : proba d'un succès
+    \item $X$ : nombre de succès de l'épreuve Binomiale
+    \item $X \sim B(n, p)$ : "$X$ suit une loi binomiale de paramètres $n$, $p$"
+    \item $P(X=k) = {{n}\choose{k}}\ p^k(1 - p)^{n-k}, \quad \forall k=0,...,n$
+    \item $E(X) = np$
+    \item $V(X) = np(1-p)$
+\end{itemize}
+
+\section{Loi Normale}
+\begin{itemize}
+    \item $X \sim \mathcal{N} (m,\sigma^2)$
+    \item $f(x) = \frac{1}{\sqrt{2 \pi} \sigma} \exp(-\frac{1}{2}(\frac{x - \mu}{\sigma})^2)$
+    \item $E(x) = \mu$
+    \item $V(x) = \sigma^2$
+\end{itemize}
+
+\begin{theo}
+    Si $X \sim \mathcal{N}(m, \sigma^2)$ alors la variable $Y = aX + b$ obéit à la loi $\mathcal{N}(a\mu+b, a^2\sigma^2)$
+\end{theo}
+
+\begin{coro}
+    Si $X \sim \mathcal{N}(\mu, \sigma^2)$ alors $Z = \frac{X - \mu}{\sigma}$ suit la loi $\mathcal{N}(0, 1)$
+\end{coro}
+
+\end{document}
+

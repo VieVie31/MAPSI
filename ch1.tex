@@ -1,0 +1,96 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Chapitre 1}
+\author{VieVie31}
+
+\begin{document}
+
+\newtheorem{theo}{Théorème}
+\newtheorem{coro}{Corollaire}
+
+\maketitle
+
+
+\section{Espérance}
+L'espérance se définie comme suit :
+\begin{equation}
+    E(X) = \sum x_kp_k
+\end{equation}
+
+\begin{itemize}
+    \item $E(aX + b) = aE(X) + b$
+    \item $E(X + Y) = E(X) + E(Y)$
+\end{itemize}
+
+
+
+\section{Variance}
+La variance se définie comme suit :
+\begin{equation}
+    V(X) = \sigma^2 = \sum[x_k-E(X)]^2p_k = E([X - E(X)]^2)
+\end{equation}
+
+L'écart type $\sigma$ est la racine carrée de la variance.
+
+\begin{itemize}
+    \item $V(aX + b) = a^2V(X)$
+    \item $V(X) = E[X^2] - E[X]^2$
+    \item $V(X+Y) = V(X) + V(Y) + 2\ cov(X, Y)$
+\end{itemize}
+
+
+
+\section{Covariance}
+\begin{equation}
+    cov(X, Y) = \sum[x_k - E(X)][y_k - E(Y)] p_k
+\end{equation}
+
+\begin{itemize}
+    \item $V(X+Y) = V(X) + V(Y) + 2\ cov(X, Y)$
+    \item $cov(X, Y) = E[XY] - E[X]E[Y]$
+\end{itemize}
+
+
+
+\section{Loi Marginale}
+Permet de projetter une loi jointe sur l'une des variables aléatoires.\\
+eg. extraire $P(A) = \sum\limits_i P(A, B=b_i)$
+
+
+
+\section{Probabilités Conditionnelles}
+\begin{equation}
+    P(A | B) = \frac{P(A,B)}{P(B)} \iff P(A, B) = P(A | B) P(B)
+\end{equation}
+
+\begin{equation}
+    P(A | B) P(B) = P(B | A) P(A) = P(A, B)
+\end{equation}
+
+
+\section{Indépendance}
+$A, B$ sont indépendants si :
+\begin{itemize}
+    \item $P(A, B) = P(A)P(B)$
+    \item $P(A | B) = P(A)$
+\end{itemize}
+
+
+\section{Coefficient de Corrélation Linéaire}
+
+\begin{equation}
+    r = \frac{cov(X, Y)}{\sigma_x\sigma_y}
+\end{equation}
+
+\begin{itemize}
+    \item $r \in [-1, 1]$
+    \item si $|r|$ est proche de 1 les variables sont dépendantes
+\end{itemize}
+
+\end{document}
+
