@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Chapitre 3}
+\author{VieVie31}
+
+\begin{document}
+
+\newtheorem{theo}{Théorème}
+\newtheorem{coro}{Corollaire}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\likelihood}{{\cal L}}
+
+\maketitle
+
+
+\section{Vraisemblance d'un échantillon (loi discrète connue)}
+$\likelihood(X) = $ vraisemblance de l'échantillon \textit{sachant la loi $P$}.
+
+\begin{itemize}
+    \item échantillon $\textbf{x} = (x_1, ..., x_n)$ de taille $n$
+    \item échantillon : les $x_i = $ réalisation de variables aléatoires $X_i$
+    \item les $X_i$ sont mutuellement indépendants (hypothèse essentielle)
+\end{itemize}
+
+\begin{equation}
+    \likelihood(X) = P(x_1, ..., x_n) = \prod\limits_{i=1}^n P(X_i = x_i)
+\end{equation} 
+
+
+\section{Estimation par Maximum de Vraisemblance}
+
+\begin{itemize}
+    \item paramètre à estimer : $\Theta$
+\end{itemize}
+
+Calcul de vraisemblance de l'échantillon :
+\begin{equation}
+    \likelihood(x, \theta) = P(x_1, ..., x_n | \Theta=\theta) = \prod\limits_{i=1}^n P(x | \Theta = \theta)
+\end{equation}
+
+On cherche à maximiser $\theta$:
+\begin{equation}
+    \argmax\limits_{\theta \in \Theta} \likelihood(x, \Theta)
+    \iff \argmax\limits_{\theta \in \Theta} \ln \likelihood(x, \Theta) 
+    \iff \argmax\limits_{\theta \in \Theta} \sum\limits_{i=1}^n\ln P(x_i | \theta)
+\end{equation}
+
+Qui est obtenu losrque (sous conditaion de concavité et de dérivabilité):
+\begin{equation}
+    \frac{\partial \likelihood(x, \theta)}{\partial \theta} = 0
+    \iff \frac{\partial \ln\likelihood(x, \theta)}{\partial \theta} = 0
+    \iff \sum\limits_{i=1}^n \frac{\partial \ln \likelihood(x, \theta)}{\partial \theta} = 0
+\end{equation}
+
+
+\subsection{Calcul de l'Estimation de Vraisemblance}
+Données : 
+\begin{itemize}
+    \item loi de probabilité $P(X = n) = f(x)$
+    \item échantillon $(x_1, ..., x_n)$
+\end{itemize}
+Poser :
+\begin{equation}
+    \prod\limits^n P(X = n) = \prod\limits^n f(x)
+\end{equation}
+Puis calculer son logarithme :
+\begin{equation}
+    \sum\limits^n \ln P(X = n) = \sum\limits^n \ln f(x)
+\end{equation}
+Puis calculer sa dérivée partielle en fonction du paramètre $\theta$ et trouver où elle s'annule:
+\begin{equation}
+    \frac{\partial f(x)}{\partial \theta} = 0
+\end{equation}
+
+\end{document}
+
