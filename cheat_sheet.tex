@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Formules Usuelles}
+\author{VieVie31}
+
+\begin{document}
+
+\newtheorem{theo}{Théorème}
+\newtheorem{coro}{Corollaire}
+
+\maketitle
+
+\section{Dérivées}
+
+\begin{equation}
+    (f \circ g)' = g' \times f' \circ g
+\end{equation}
+
+\begin{equation}
+    \Big( \frac{1}{x} \Big)' = \frac{-1}{x^2} 
+\end{equation}
+
+\begin{equation}
+    (\ln x)' = \frac{1}{x}
+\end{equation}
+
+
+
+\section{Calculs}
+
+\begin{equation}
+    \ln ab = \ln a + \ln b    
+\end{equation}
+
+\begin{equation}
+    \ln a^b = b \ln a
+\end{equation}
+
+
+
+\section{Produits et Sommes}
+
+\begin{equation}
+    \prod x = \exp \sum \ln x
+    \iff \sum x = \ln \prod \exp x
+\end{equation}
+
+\begin{equation}
+    \sum \limits^n c = nc
+\end{equation}
+
+\begin{equation}
+    \sum \limits^n (a_i - 1) = \Big( \sum \limits^n a_i \Big) -n
+\end{equation}
+
+\end{document}
+
