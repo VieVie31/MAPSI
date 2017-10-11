@@ -3,4 +3,7 @@
 *.dvi
 *.pdf
 .*
-
+*.fdb_latexmk
+*.synctex.gz
+*.fls
+ressources/
