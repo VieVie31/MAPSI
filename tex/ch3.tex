@@ -51,7 +51,7 @@ On cherche à maximiser $\theta$:
     \iff \argmax\limits_{\theta \in \Theta} \sum\limits_{i=1}^n\ln P(x_i | \theta)
 \end{equation}
 
-Qui est obtenu losrque (sous conditaion de concavité et de dérivabilité):
+Qui est obtenu losrque (sous conditaion de \textbf{concavité} et de dérivabilité):
 \begin{equation}
     \frac{\partial \likelihood(x, \theta)}{\partial \theta} = 0
     \iff \frac{\partial \ln\likelihood(x, \theta)}{\partial \theta} = 0
@@ -77,6 +77,25 @@ Puis calculer sa dérivée partielle en fonction du paramètre $\theta$ et trouv
 \begin{equation}
     \frac{\partial f(x)}{\partial \theta} = 0
 \end{equation}
+
+
+
+\section{Estimateurs de Vraisemblance de Lois connues}
+
+\subsection{Bernoulli}
+
+\begin{gather*}
+    \likelihood(x, \theta) = \prod\limits^n \theta^{x_i}(1 - \theta)^{1 - x_i} \\ \\
+    \ln \likelihood(x, \theta) = \sum\limits^n \ln(\theta^{x_i}(1 - \theta)^{1 - x_i}) \\
+    = \sum\limits^n x_i (\ln\theta) + \sum\limits^n ((1-x_i) \ln(1-\theta)) \\ \\
+    \frac{\partial \ln \likelihood(x, \theta)}{\partial \theta} = 0 \\
+    \iff \frac{\sum\limits^n x_i}{\theta} - \frac{\sum\limits^n (1-x_i)}{1 - \theta} = 0 \\
+    \iff \frac{(1 - \theta) \sum\limits^n x_i - \theta \sum\limits^n (1 - x_i)}{\theta (1 - \theta)} = 0 \\
+    \iff \sum\limits^n x_i - \sum\limits^n x_i \theta - (n\theta - \sum\limits^n x_i\theta) = 0 \\
+    \iff \sum\limits^n x_i - \sum\limits^n x_i \theta -  n\theta + \sum\limits^n x_i\theta  = 0 \\
+    \iff \sum\limits^n x_i - n\theta = 0 \\
+    \iff \frac{\sum\limits^n x_i}{n} = \theta
+\end{gather*}
 
 \end{document}
 
