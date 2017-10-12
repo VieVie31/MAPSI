@@ -119,7 +119,14 @@ On trouve d'abord le premier paramètre $\mu$.
     \iff \mu = \frac{1}{n} \sum\limits^n x_i
 \end{gather*}
 
+Puis le paramètre $\sigma$.
 
+\begin{gather*}
+    \frac{\partial \likelihood(x, \theta)}{\partial \sigma} = 0 \\
+    \iff \frac{-n}{2} \frac{2}{\sigma} - \frac{\sum\limits^n (x_i i \mu)^2}{2} \frac{-2}{\sigma^3}  = 0\\
+    \iff -n + \frac{\sum\limits^n (x_i - \mu)^2}{\sigma^2} = 0
+    \iff \frac{1}{n} \sum\limits^n (x_i - \mu)^2 = \sigma^2
+\end{gather*}
 
 \end{document}
 
