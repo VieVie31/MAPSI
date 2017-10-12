@@ -128,5 +128,20 @@ Puis le paramètre $\sigma$.
     \iff \frac{1}{n} \sum\limits^n (x_i - \mu)^2 = \sigma^2
 \end{gather*}
 
+\subsection{Distribution Exponentielle}
+
+\begin{gather*}
+    f(x) = \begin{cases}
+        \lambda \exp(-\lambda x), & \text{si $x \geq 0$}.\\
+        0, & \text{sinon}.
+      \end{cases}
+    \\ \\ 
+    \likelihood(x, \theta) = \prod\limits^n \theta \exp(-\theta x_i) \\ \\
+    \ln \likelihood(x, \theta) = \sum\limits^n \ln(\theta \exp(-\theta x_i)) = n\ln\theta - \theta \sum\limits^n x_i \\ \\
+    \frac{\partial \ln \likelihood(x, \theta)}{\theta} = \frac{n}{\theta} -\sum\limits^n x_i = 0 \\
+    \iff -\sum\limits^n x_i = \frac{-n}{\theta} \\
+    \iff \theta = \frac{n}{\sum\limits^n x_i}
+\end{gather*}
+
 \end{document}
 
