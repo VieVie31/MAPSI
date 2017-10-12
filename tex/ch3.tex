@@ -5,7 +5,7 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 
-\title{Chapitre 3}
+\title{Chapitre 3 \\ MLE \& MAP}
 \author{VieVie31}
 
 \begin{document}
@@ -96,6 +96,30 @@ Puis calculer sa dérivée partielle en fonction du paramètre $\theta$ et trouv
     \iff \sum\limits^n x_i - n\theta = 0 \\
     \iff \frac{\sum\limits^n x_i}{n} = \theta
 \end{gather*}
+
+\subsection{Normale}
+
+\begin{gather*}
+        f(x) = (2 \pi \sigma^2)^{-1/2} \exp\Big(\frac{-1}{2} \frac{(x-\mu)}{\sigma^2}\Big)^2 \\ \\
+        \likelihood(x, \theta) = \prod\limits^n f(x) \\ \\
+        \ln\likelihood(x, \theta) = \sum\limits^n \ln f(x) \\
+        = \sum\limits^n \ln(2 \pi \sigma^2)^{-1/2} + \sum\limits^n \Big(\frac{-1}{2} \frac{(x_i-\mu)}{\sigma^2})\Big)^2 \\
+        = \sum\limits^n \frac{- 1}{2} \ln(2 \pi \sigma^2) - \frac{1}{2} \sum\limits^n \frac{(x_i -\mu)^2}{\sigma^2} \\
+        = \frac{-n \ln(2 \pi \sigma^2)}{2} - \frac{1}{2 \sigma^2} \sum\limits^n (x_i - \mu)^2 \\
+        = \frac{-n \ln(2 \pi)}{2} - {n \ln(\sigma)} - \frac{1}{2 \sigma^2} \sum\limits^n (x_i - \mu)^2
+\end{gather*}
+
+La loi normale $\mathcal{N}(\mu, \sigma^2)$ a deux paramètres $\mu$ et $\sigma^2$.
+On trouve d'abord le premier paramètre $\mu$.
+
+\begin{gather*}
+    \frac{\partial \likelihood(x, \theta)}{\partial \mu} = \frac{\partial \frac{-1}{2 \sigma^2} \sum\limits^n (x_i - \mu)^2}{\partial \mu} = 0 \\
+    \iff \frac{\partial \frac{1}{2}\sum\limits^n (x_i-\mu)^2}{\partial \mu} = \sum\limits^n (x_i - \mu) = 0 \\
+    \iff \sum\limits^n x_i - n\mu = 0 \\
+    \iff \mu = \frac{1}{n} \sum\limits^n x_i
+\end{gather*}
+
+
 
 \end{document}
 
