@@ -143,5 +143,56 @@ Puis le paramètre $\sigma$.
     \iff \theta = \frac{n}{\sum\limits^n x_i}
 \end{gather*}
 
+\subsection{Loi Géométrique}
+
+TODO
+
+
+
+\section{Maximum a Posteriori}
+
+\subsection{Théorème de Bayes}
+
+\begin{equation}
+    P(A|B) = \frac{P(B|A)P(A)}{P(B)}
+\end{equation}
+
+Avec : 
+\begin{itemize}
+    \item $P(A|B)$ : posterior
+    \item $P(B|A)$ : likelihood
+    \item $P(A)$ : prior
+    \item $P(B)$ : evidence
+\end{itemize}
+
+Dans notre cas :
+\begin{itemize}
+    \item $A = \theta$ (le modèle)
+    \item $B = X$ (observations)
+\end{itemize}
+
+
+\subsection{Maximum a Posteriori}
+
+\begin{align*}
+    \hat\theta_{MAP} & = \argmax\limits_{\theta} P(\theta | X) \\
+    & = \argmax\limits_{\theta} \frac{P(X | \theta)P(\theta)}{P(X)} \\
+    & \propto \argmax\limits_{\theta} P(X | \theta)P(\theta) \\
+    & = \argmax\limits_{\theta} \prod\limits^n P(x_i | \theta)P(\theta) \\
+    & = \argmax\limits_{\theta} \ln P(\theta | X) \\
+    & = \argmax\limits_{\theta} \ln \prod\limits^n P(x_i | \theta)P(\theta) \\
+    & = \argmax\limits_{\theta} \sum\limits^n (\ln(P(x_i | \theta)) + \ln(P(\theta)))
+\end{align*}
+
+Il suffit donc de calculer : 
+\begin{equation*}
+    \frac{
+        \partial \ln \prod\limits^n P(x_i | \theta)P(\theta)
+    }{
+        \partial \theta
+    } = 0
+\end{equation*}
+
+
 \end{document}
 
