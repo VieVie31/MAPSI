@@ -84,18 +84,18 @@ Puis calculer sa dérivée partielle en fonction du paramètre $\theta$ et trouv
 
 \subsection{Bernoulli}
 
-\begin{gather*}
-    \likelihood(x, \theta) = \prod\limits^n \theta^{x_i}(1 - \theta)^{1 - x_i} \\ \\
-    \ln \likelihood(x, \theta) = \sum\limits^n \ln(\theta^{x_i}(1 - \theta)^{1 - x_i}) \\
-    = \sum\limits^n x_i (\ln\theta) + \sum\limits^n ((1-x_i) \ln(1-\theta)) \\ \\
-    \frac{\partial \ln \likelihood(x, \theta)}{\partial \theta} = 0 \\
-    \iff \frac{\sum\limits^n x_i}{\theta} - \frac{\sum\limits^n (1-x_i)}{1 - \theta} = 0 \\
-    \iff \frac{(1 - \theta) \sum\limits^n x_i - \theta \sum\limits^n (1 - x_i)}{\theta (1 - \theta)} = 0 \\
-    \iff \sum\limits^n x_i - \sum\limits^n x_i \theta - (n\theta - \sum\limits^n x_i\theta) = 0 \\
-    \iff \sum\limits^n x_i - \sum\limits^n x_i \theta -  n\theta + \sum\limits^n x_i\theta  = 0 \\
-    \iff \sum\limits^n x_i - n\theta = 0 \\
-    \iff \frac{\sum\limits^n x_i}{n} = \theta
-\end{gather*}
+\begin{align*}
+    \likelihood(x, \theta) &= \prod\limits^n \theta^{x_i}(1 - \theta)^{1 - x_i} \\ \\
+    \ln \likelihood(x, \theta) &= \sum\limits^n \ln(\theta^{x_i}(1 - \theta)^{1 - x_i}) \\
+    &= \sum\limits^n x_i (\ln\theta) + \sum\limits^n ((1-x_i) \ln(1-\theta)) \\ \\
+    \frac{\partial \ln \likelihood(x, \theta)}{\partial \theta} &= 0 \\
+    &\iff \frac{\sum\limits^n x_i}{\theta} - \frac{\sum\limits^n (1-x_i)}{1 - \theta} = 0 \\
+    &\iff \frac{(1 - \theta) \sum\limits^n x_i - \theta \sum\limits^n (1 - x_i)}{\theta (1 - \theta)} = 0 \\
+    &\iff \sum\limits^n x_i - \sum\limits^n x_i \theta - (n\theta - \sum\limits^n x_i\theta) = 0 \\
+    &\iff \sum\limits^n x_i - \sum\limits^n x_i \theta -  n\theta + \sum\limits^n x_i\theta  = 0 \\
+    &\iff \sum\limits^n x_i - n\theta = 0 \\
+    &\iff \frac{\sum\limits^n x_i}{n} = \theta
+\end{align*}
 
 \subsection{Loi Binomiale}
 
@@ -115,49 +115,49 @@ Puis calculer sa dérivée partielle en fonction du paramètre $\theta$ et trouv
 
 \subsection{Normale}
 
-\begin{gather*}
-        f(x) = (2 \pi \sigma^2)^{-1/2} \exp\Big(\frac{-1}{2} \frac{(x-\mu)}{\sigma^2}\Big)^2 \\ \\
-        \likelihood(x, \theta) = \prod\limits^n f(x) \\ \\
-        \ln\likelihood(x, \theta) = \sum\limits^n \ln f(x) \\
-        = \sum\limits^n \ln(2 \pi \sigma^2)^{-1/2} + \sum\limits^n \Big(\frac{-1}{2} \frac{(x_i-\mu)}{\sigma^2})\Big)^2 \\
-        = \sum\limits^n \frac{- 1}{2} \ln(2 \pi \sigma^2) - \frac{1}{2} \sum\limits^n \frac{(x_i -\mu)^2}{\sigma^2} \\
-        = \frac{-n \ln(2 \pi \sigma^2)}{2} - \frac{1}{2 \sigma^2} \sum\limits^n (x_i - \mu)^2 \\
-        = \frac{-n \ln(2 \pi)}{2} - {n \ln(\sigma)} - \frac{1}{2 \sigma^2} \sum\limits^n (x_i - \mu)^2
-\end{gather*}
+\begin{align*}
+        f(x) &= (2 \pi \sigma^2)^{-1/2} \exp\Big(\frac{-1}{2} \frac{(x-\mu)}{\sigma^2}\Big)^2 \\ \\
+        \likelihood(x, \theta) &= \prod\limits^n f(x) \\ \\
+        \ln\likelihood(x, \theta) &= \sum\limits^n \ln f(x) \\
+        &= \sum\limits^n \ln(2 \pi \sigma^2)^{-1/2} + \sum\limits^n \Big(\frac{-1}{2} \frac{(x_i-\mu)}{\sigma^2})\Big)^2 \\
+        &= \sum\limits^n \frac{- 1}{2} \ln(2 \pi \sigma^2) - \frac{1}{2} \sum\limits^n \frac{(x_i -\mu)^2}{\sigma^2} \\
+        &= \frac{-n \ln(2 \pi \sigma^2)}{2} - \frac{1}{2 \sigma^2} \sum\limits^n (x_i - \mu)^2 \\
+        &= \frac{-n \ln(2 \pi)}{2} - {n \ln(\sigma)} - \frac{1}{2 \sigma^2} \sum\limits^n (x_i - \mu)^2
+\end{align*}
 
 La loi normale $\mathcal{N}(\mu, \sigma^2)$ a deux paramètres $\mu$ et $\sigma^2$.
 On trouve d'abord le premier paramètre $\mu$.
 
-\begin{gather*}
-    \frac{\partial \likelihood(x, \theta)}{\partial \mu} = \frac{\partial \frac{-1}{2 \sigma^2} \sum\limits^n (x_i - \mu)^2}{\partial \mu} = 0 \\
-    \iff \frac{\partial \frac{1}{2}\sum\limits^n (x_i-\mu)^2}{\partial \mu} = \sum\limits^n (x_i - \mu) = 0 \\
-    \iff \sum\limits^n x_i - n\mu = 0 \\
-    \iff \mu = \frac{1}{n} \sum\limits^n x_i
-\end{gather*}
+\begin{align*}
+    &\frac{\partial \likelihood(x, \theta)}{\partial \mu} = \frac{\partial \frac{-1}{2 \sigma^2} \sum\limits^n (x_i - \mu)^2}{\partial \mu} = 0 \\
+    \iff& \frac{\partial \frac{1}{2}\sum\limits^n (x_i-\mu)^2}{\partial \mu} = \sum\limits^n (x_i - \mu) = 0 \\
+    \iff& \sum\limits^n x_i - n\mu = 0 \\
+    \iff& \mu = \frac{1}{n} \sum\limits^n x_i
+\end{align*}
 
 Puis le paramètre $\sigma$.
 
-\begin{gather*}
-    \frac{\partial \likelihood(x, \theta)}{\partial \sigma} = 0 \\
-    \iff \frac{-n}{2} \frac{2}{\sigma} - \frac{\sum\limits^n (x_i i \mu)^2}{2} \frac{-2}{\sigma^3}  = 0\\
-    \iff -n + \frac{\sum\limits^n (x_i - \mu)^2}{\sigma^2} = 0
-    \iff \frac{1}{n} \sum\limits^n (x_i - \mu)^2 = \sigma^2
-\end{gather*}
+\begin{align*}
+    &\frac{\partial \likelihood(x, \theta)}{\partial \sigma} = 0 \\
+    \iff& \frac{-n}{2} \frac{2}{\sigma} - \frac{\sum\limits^n (x_i i \mu)^2}{2} \frac{-2}{\sigma^3}  = 0\\
+    \iff& -n + \frac{\sum\limits^n (x_i - \mu)^2}{\sigma^2} = 0
+    \iff& \frac{1}{n} \sum\limits^n (x_i - \mu)^2 = \sigma^2
+\end{align*}
 
 \subsection{Distribution Exponentielle}
 
-\begin{gather*}
-    f(x) = \begin{cases}
+\begin{align*}
+    f(x) &= \begin{cases}
         \lambda \exp(-\lambda x), & \text{si $x \geq 0$}.\\
         0, & \text{sinon}.
       \end{cases}
     \\ \\ 
-    \likelihood(x, \theta) = \prod\limits^n \theta \exp(-\theta x_i) \\ \\
-    \ln \likelihood(x, \theta) = \sum\limits^n \ln(\theta \exp(-\theta x_i)) = n\ln\theta - \theta \sum\limits^n x_i \\ \\
-    \frac{\partial \ln \likelihood(x, \theta)}{\theta} = \frac{n}{\theta} -\sum\limits^n x_i = 0 \\
-    \iff -\sum\limits^n x_i = \frac{-n}{\theta} \\
-    \iff \theta = \frac{n}{\sum\limits^n x_i}
-\end{gather*}
+    \likelihood(x, \theta) &= \prod\limits^n \theta \exp(-\theta x_i) \\ \\
+    \ln \likelihood(x, \theta) &= \sum\limits^n \ln(\theta \exp(-\theta x_i)) = n\ln\theta - \theta \sum\limits^n x_i \\ \\
+    &\frac{\partial \ln \likelihood(x, \theta)}{\theta} = \frac{n}{\theta} -\sum\limits^n x_i = 0 \\
+    \iff& -\sum\limits^n x_i = \frac{-n}{\theta} \\
+    \iff& \theta = \frac{n}{\sum\limits^n x_i}
+\end{align*}
 
 \subsection{Loi Géométrique}
 
