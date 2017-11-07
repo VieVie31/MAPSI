@@ -105,8 +105,8 @@ Puis calculer sa dérivée partielle en fonction du paramètre $\theta$ et trouv
     \likelihood(x, \theta) &= \prod\limits^m \dbinom{n}{x_i}p^{x_i}(1-p)^{n-x_i} \\
     \\
     \ln \likelihood(x, \theta) &= \sum\limits^m \ln \Big( \dbinom{n}{x_i}p^{x_i}(1-p)^{n-x_i} \Big) \\
-    &= m \ln \dbinom{n}{x_i} + \ln(p) \sum\limits^m x_i + \ln(1-p)\sum\limits^m(n-x_i) \\
-    &= m \ln \dbinom{n}{x_i} + \ln(p) \sum\limits^m x_i + \ln(1-p)(mn - \sum\limits^m x_i) \\
+    &= \sum\limits^m \ln \dbinom{n}{x_i} + \ln(p) \sum\limits^m x_i + \ln(1-p)\sum\limits^m(n-x_i) \\
+    &= \sum\limits^m \ln \dbinom{n}{x_i} + \ln(p) \sum\limits^m x_i + \ln(1-p)(mn - \sum\limits^m x_i) \\
     \\
     \frac{\partial \ln L(x, \theta)}{\partial p} &= \frac{\sum\limits^m x_i}{p} - \frac{mn - \sum\limits^m x_i}{1 - p} = 0 \\
     &\iff \sum\limits^m x_i - p \sum\limits^m x_i - mnp + p \sum\limits^m x_i = \sum\limits^m x_i - mnp = 0 \\
