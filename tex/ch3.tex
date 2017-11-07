@@ -194,9 +194,9 @@ Dans notre cas :
     \hat\theta_{MAP} & = \argmax\limits_{\theta} P(\theta | X) \\
     & = \argmax\limits_{\theta} \frac{P(X | \theta)P(\theta)}{P(X)} \\
     & \propto \argmax\limits_{\theta} P(X | \theta)P(\theta) \\
-    & = \argmax\limits_{\theta} \prod\limits^n P(x_i | \theta)P(\theta) \\
+    & = \argmax\limits_{\theta} P(\theta) \prod\limits^n P(x_i | \theta) \\
     & = \argmax\limits_{\theta} \ln P(\theta | X) \\
-    & = \argmax\limits_{\theta} \ln \prod\limits^n P(x_i | \theta)P(\theta) \\
+    & = \argmax\limits_{\theta} \ln \Bigg[ P(\theta) \prod\limits^n P(x_i | \theta) \Bigg] \\
     & = \argmax\limits_{\theta} \sum\limits^n (\ln(P(x_i | \theta)) + \ln(P(\theta)))
 \end{align*}
 
