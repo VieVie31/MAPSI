@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[francais]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\title{Chapitre 5 \\ Tests Statistiques}
+\author{VieVie31}
+
+\begin{document}
+
+\newtheorem{theo}{Théorème}
+\newtheorem{coro}{Corollaire}
+
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\likelihood}{{\cal L}}
+
+\maketitle
+
+\section{Test d'Hypothèse}
+
+
+\section{Force du Test}
+
+
+\section{Test de $\chi2$}
+
+Soit une table de contingence $N$, on cherche à montrer que l'hypothèse $H_0$ (les deux variables sont indépendantes) est vraie avec un taux d'erreur de $\alpha$. \\
+On commence par contruire la table $N$ construite à partir des marginales $L_i$, $C_j$ de $N$ dans son hypothèse d'indépendance. \\
+
+\begin{align*}
+    I_{i,j} = \frac{L_i * C_j}{n}
+\end{align*}
+
+On mesure ensuite la valeur de $d^2$ : 
+
+\begin{align*}
+    d^2 = \sum\limits_i \sum\limits_j \frac{N_{i,j} * I_{i,j}}{I_{i,j}}
+\end{align*}
+
+On cherche ensuite dans la table la valeur de seuil en fonction de $\alpha$ et du nombre de degré de liberté calculé comme suit : $(\#L - 1) * (\#C - 1)$.
+
+\end{document}
+
