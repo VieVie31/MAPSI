@@ -20,13 +20,39 @@
 
 \section{Test d'Hypothèse}
 
+On pose comme hypothèse $H_0$ l'hypothèse dont on est le plus sûr.
+
+Soit :
+
+\begin{itemize}
+    \item $n$ : le nombre de valeurs de l'échantillon
+    \item $\mu$ : moyenne théorique (ne pas confondre avec la moyenne de l'échantillon)
+    \item $\bar X$: la moyenne empirique
+    \item $\sigma$ : l'écart type de la distribution habituelle
+    \item $\alpha$ : le niveau de confiance est de $1 - \alpha$
+    \item $\bar X$ : limite supérieure / inférieure pour que l'hypothèse $H_0$ soit considérée comme vraie (à trouver)
+\end{itemize}
+
+On sait que :
+
+\begin{align*}
+    \frac{\bar X - \mu_{de\ l'hypothese}}{\sigma / \sqrt{n}} \sim \mathcal{N}(0, 1)
+\end{align*}
+
+Ainsi on cherche dans la table la valeur de $Z_{\alpha}$ tel que $P(X \geq Z_{\alpha}) = \alpha$.\\
+Puis trouve la valeur de $\bar X = Z_{\alpha} * (\sigma / \sqrt{n}) \pm \mu$ et compare le $\bar X$ trouvé avec le réel.
 
 \section{Force du Test}
 
+On cherche le seuil qui va minimiser $\beta = P(H_1 rejet | H_1 vraie)$ soit maximiser $1 - \beta = P(H_0 rejet | H_1 vraie)$.
+
+\section{Test d'Ajustement}
+
+TODO
 
 \section{Test de $\chi2$}
 
-Soit une table de contingence $N$, on cherche à montrer que l'hypothèse $H_0$ (les deux variables sont indépendantes) est vraie avec un taux d'erreur de $\alpha$. \\
+Soit une table de contingence $N$, on cherche à montrer que l'hypothèse $H_0$ (les deux variables sont indépendantes) est vraie avec un taux \textbf{d'erreur} de $\alpha$. \\
 On commence par contruire la table $N$ construite à partir des marginales $L_i$, $C_j$ de $N$ dans son hypothèse d'indépendance. \\
 
 \begin{align*}
@@ -36,10 +62,11 @@ On commence par contruire la table $N$ construite à partir des marginales $L_i$
 On mesure ensuite la valeur de $d^2$ : 
 
 \begin{align*}
-    d^2 = \sum\limits_i \sum\limits_j \frac{N_{i,j} * I_{i,j}}{I_{i,j}}
+    d^2 = \sum\limits_i \sum\limits_j \frac{(N_{i,j} - I_{i,j})^2}{I_{i,j}}
 \end{align*}
 
-On cherche ensuite dans la table la valeur de seuil en fonction de $\alpha$ et du nombre de degré de liberté calculé comme suit : $(\#L - 1) * (\#C - 1)$.
+On cherche ensuite dans la table la valeur de seuil en fonction de $\alpha$ et du nombre de degré de liberté calculé comme suit : $(\#L - 1) * (\#C - 1)$.\\
+Enfin on vérifie que $d^2 < \chi^2$, si c'est le cas, il y a indépendance. 
 
 \end{document}
 
